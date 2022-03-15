@@ -1,17 +1,19 @@
 
-# A Python program to print all
-# permutations using library function
-from itertools import permutations
-from inputs import worlds_number
-from inputs import worlds
-from inputs import dict_worldsandprob
-from canonicalextension import multiplyList
+#A Python program to print all
+#permutations using library function
+from canonicalextension import atoms_bac, list_prob
 
-atoms_bac = permutations(worlds)
 
-for i in worlds:
-    print(dict_worldsandprob[i])
-    
+
+
+result = {}
+
+for i in range(len(atoms_bac)):
+    result[atoms_bac[i]]=list_prob(atoms_bac[i])
+
+print(result)
+
+
 
 
 
