@@ -17,7 +17,7 @@ print(result)
 
 
 
-
+#da terminale digitare " cat inputs.txt | probatoms.py "
 
   
     
