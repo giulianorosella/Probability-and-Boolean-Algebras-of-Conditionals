@@ -33,3 +33,33 @@ def list_prob(lst):
             #print(prob_elements_denom)
             prob_list.append(float(dict_worldsandprob[i]/sum(prob_elements_denom)))
     return multiplyList(prob_list)
+
+
+
+result = {}
+
+for i in atoms_bac:
+    result[i]=list_prob(i)
+
+
+print('This is the probability distribution on the atoms of the BAC: ')
+print(result)
+
+
+def atoms_below(tup):
+    big_truthmakers = []
+    big_falsemakers = []
+    for i in atoms_bac:
+        small_truthmakers = []
+        small_falsemakers = []
+        for j in i:
+            if j in tup[1]:
+                small_truthmakers.append(j)
+            else:
+                small_falsemakers.append(j)
+        if small_truthmakers[0] in tup[0]:
+            big_truthmakers.append(i)
+        else:
+            big_falsemakers.append(i)
+    #print(big_truthmakers)
+    return big_truthmakers

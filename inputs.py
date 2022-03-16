@@ -1,3 +1,5 @@
+from itertools import combinations, permutations 
+
 worlds_number=int(input('Tell me the numbers of atoms of A:'))
 
 worlds = []
@@ -49,6 +51,27 @@ def permutation(lst):
 print('The atoms of the BAC are: ')
 print(permutation(worlds))
 
+combinations_of_atoms = []
+
+for i in range(len(worlds)):
+    combinations_of_atoms = combinations_of_atoms + list(combinations(worlds, i+1))
+    
+print(combinations_of_atoms)
+
+list_combinations_of_atoms = []
+
+for i in combinations_of_atoms:
+    list_combinations_of_atoms.append(list(i))
+
+
+print(list_combinations_of_atoms)
+
+all_basic_conditionals = list(permutations(list_combinations_of_atoms, 2))
+
+
+print('All basic conditionals are: ')
+print(all_basic_conditionals)
+
 
 for i in worlds:
         worlds_prob.append(float(input('What is the probability of '+str(i)+'? ')))
@@ -58,6 +81,11 @@ dict_worldsandprob = dict(zip(worlds, worlds_prob))
 
 print('The probability of inital atoms are:') 
 print(dict_worldsandprob)
+
+
+
+
+
 
 
 
