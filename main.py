@@ -6,8 +6,8 @@ from canonicalextension import atoms_bac, list_prob
 
 result = {}
 
-for i in range(len(atoms_bac)):
-    result[atoms_bac[i]]=list_prob(atoms_bac[i])
+for i in atoms_bac:
+    result[i]=list_prob(i)
 
 
 print('This is the probability distribution on the atoms of the BAC: ')
