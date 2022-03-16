@@ -1,5 +1,6 @@
 from itertools import permutations
-from inputs import worlds, dict_worldsandprob
+from inputs import worlds, dict_worldsandprob, all_the_successors, access, all_basic_conditionals
+
 
 
 atoms_bac = list(permutations(worlds))
@@ -63,3 +64,24 @@ def atoms_below(tup):
             big_falsemakers.append(i)
     #print(big_truthmakers)
     return big_truthmakers
+
+
+def box(lst):
+    Box = []
+    for i in atoms_bac:
+        if ((len(access(list(i))[1]) > 0) and ([x for x in atoms_below(lst) if x in access(list(i))[1]] == access(list(i))[1])):
+            Box.append(i)
+        if len(access(list(i))[1]) == 0:
+            Box.append(i)
+    return Box
+
+
+def belief(counter):
+    result = []
+    for i in box(counter):
+        result.append(list_prob(i))
+    return sum(result)
+
+
+
+

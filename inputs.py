@@ -1,6 +1,6 @@
 from itertools import combinations, permutations 
 
-worlds_number=int(input('Tell me the numbers of atoms of A:'))
+worlds_number=int(input('Tell me the number of atoms of A: '))
 
 worlds = []
 
@@ -51,6 +51,31 @@ def permutation(lst):
 print('The atoms of the BAC are: ')
 print(permutation(worlds))
 
+all_the_successors = []
+for i in permutation(worlds):
+    R = []
+    successors_number = int(input('Tell me the number of successors of ' +str(i)+ ' : '))
+    for j in range(successors_number):
+        R.append(tuple(input('Enter successor name: ')))
+    all_the_successors.append(R)
+
+print('All the successors are: ')
+print(all_the_successors)
+
+
+
+def access(tup):
+    if len(tup) > 0:
+        return tuple([permutation(worlds)[permutation(worlds).index(tup)], all_the_successors[permutation(worlds).index(tup)]])
+    else:
+        return []
+
+for i in permutation(worlds):
+    print('The successors of ' +str(i)+ ' are: ')
+    print(access(i))
+
+
+
 combinations_of_atoms = []
 
 for i in range(len(worlds)):
@@ -71,6 +96,7 @@ all_basic_conditionals = list(permutations(list_combinations_of_atoms, 2))
 
 print('All basic conditionals are: ')
 print(all_basic_conditionals)
+print(int(len(all_basic_conditionals)))
 
 
 for i in worlds:
@@ -81,6 +107,14 @@ dict_worldsandprob = dict(zip(worlds, worlds_prob))
 
 print('The probability of inital atoms are:') 
 print(dict_worldsandprob)
+
+
+
+
+
+
+
+
 
 
 
