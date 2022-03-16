@@ -9,6 +9,8 @@ result = {}
 for i in range(len(atoms_bac)):
     result[atoms_bac[i]]=list_prob(atoms_bac[i])
 
+
+print('This is the probability distribution on the atoms of the BAC: ')
 print(result)
 
 
