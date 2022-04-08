@@ -66,21 +66,45 @@ def atoms_below(tup):
     return big_truthmakers
 
 
+
 def box(lst):
     Box = []
     for i in atoms_bac:
-        if ((len(access(list(i))[1]) > 0) and ([x for x in atoms_below(lst) if x in access(list(i))[1]] == access(list(i))[1])):
-            Box.append(i)
-        if len(access(list(i))[1]) == 0:
+        if set(access(list(i))[1]) <= set(atoms_below(lst)):
             Box.append(i)
     return Box
 
 
+    
+    
+    
+    
+    
+    #Box = []
+    #for i in atoms_bac:
+     #   if ((len(access(list(i))[1]) > 0) and ([x for x in atoms_below(lst) if x in access(list(i))[1]] == access(list(i))[1])):
+      #      Box.append(i)
+       # else:
+        #    Box.append(i)
+    #return Box
+
+
 def belief(counter):
-    result = []
+    tosum = []
     for i in box(counter):
-        result.append(list_prob(i))
-    return sum(result)
+        tosum.append(list_prob(list(i)))    
+    #print(tosum)
+    #print(box(counter))
+    return sum(tosum)
+
+
+
+
+#def belief(counter):
+ #   tosum = []
+  #  for i in box(counter):
+   #     tosum.append(float(list_prob(list(i))))
+    #return sum(tosum)
 
 
 

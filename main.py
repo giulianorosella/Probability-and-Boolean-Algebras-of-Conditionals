@@ -20,19 +20,21 @@ from inputs import all_basic_conditionals
 
 #prob_below = []
 #for i in atoms_below(bc_in_question):
-#    prob_below.append(list_prob(i))
+    #prob_below.append(list_prob(i))
 
 #print('Its probability is: ')
 #print(sum(prob_below))
 
 #print('Its belief is: ')
-#print(belief(all_basic_conditionals[2]))
+#print(belief(bc_in_question))
 
+#for i in all_basic_conditionals:
+    #print('atoms belows: ') 
+    #print(atoms_below(i))
 
 
 counterfactuals = []
 for i in all_basic_conditionals:
-    counterfactuals.append(box(i))
     print('The box of ' +str(i)+ ' is: ')
     print(box(i))
     at_below = []
